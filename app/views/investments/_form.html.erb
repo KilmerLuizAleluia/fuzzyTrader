@@ -1,7 +1,32 @@
 <div class='ui middle aligned center aligned grid' style="margin-top: 2%">
   <div class="ui stacked segment">
 
-    <%=  "asset amount: #{@investment.asset_amount}" %>
+    <h3 class="ui dividing header" style="margin-top: 5%">Possible Assets: </h3>
 
+    <%#=  "asset amount: #{@investment.asset_amount}" %>
+    <%#=  "asset amount: #{@bitcoin_value}" %>
+    <%#=  "asset amount: #{@assets_list}" %>
+    <table class="ui celled table">
+      <thead>
+      <tr>
+        <th>Symbol name</th>
+        <th>Price</th>
+        <th>Higher value in last 52 weeks</th>
+        <th>Lowest value in last 52 weeks</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @assets_list.each do |asset| %>
+        <tr>
+          <td data-label="Symbol name"><%= asset[:symbol] %></td>
+          <td data-label="Price"><%= asset[:price] %></td>
+          <td data-label="Higher value in last 52 weeks"><%= asset[:fifty_two_week_high] %></td>
+          <td data-label="Lowest value in last 52 weeks"><%= asset[:fifty_two_week_low] %></td>
+          <td data-label="Actions">Buy</td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
