@@ -1,0 +1,10 @@
+<h3 class="ui dividing header" style="margin-top: 5%">How much do you want to invest today?</h3>
+
+  <%= form_with(url: new_investment_path, method: "get", local: true) do %>
+    <%= label_tag(:asset_amount, "Asset amount:") %>
+    <%= text_field_tag(:asset_amount) %>
+    <%= submit_tag("Show me assets") %>
+  <% end %>
+
+</div>
+
