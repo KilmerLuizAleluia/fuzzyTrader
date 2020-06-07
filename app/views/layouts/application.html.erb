@@ -19,7 +19,7 @@
     <% if user_signed_in? %>
       <div class="ui fixed inverted menu" style="margin-top: 0;" >
         <div class="ui container" >
-          <%= link_to "Hello, #{current_user.full_name}!", edit_user_registration_path,
+          <%= link_to "Hello, #{current_user.full_name}!", investments_path,
                       :class => 'header item' %>
           <%= link_to 'Edit profile', edit_user_registration_path,
                       :class => 'header item' %>

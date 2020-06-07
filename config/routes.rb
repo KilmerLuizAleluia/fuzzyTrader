@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :investments
+  resources :investments, only: [:buy, :index, :new] do
+    collection do
+      post :buy, to: 'investments#buy'
+    end
+  end
 
-  get "investments/new" => "investments#new"
+  devise_for :users
+  resources :portfolios
 
   root 'investments#index'
 end
