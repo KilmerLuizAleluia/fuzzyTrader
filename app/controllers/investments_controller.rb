@@ -24,6 +24,7 @@ class InvestmentsController < ApplicationController
     # assets += helpers.retrieve_assets("SIM,TBIRD.PA,TKAT,USTB,UUUU")
     # assets
     #
+    # Since API is only returning NULL, I'm simulating some results:
     #
     [{ symbol: 'ACRE', price: 13, 'fifty_two_week_high': 14, 'fifty_two_week_low': 9 },
      { symbol: 'IMLP', price: 52, 'fifty_two_week_high': 52, 'fifty_two_week_low': 20 },
