@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_one :portfolio
+  has_one :portfolio, dependent: :nullify
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-  validates_presence_of :first_name, :last_name
+  validates :first_name, :last_name, presence: true
   after_create :create_portfolio
 
   def full_name

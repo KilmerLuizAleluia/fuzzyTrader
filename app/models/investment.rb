@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class Investment < ApplicationRecord
   belongs_to :portfolio
 
   def dollar_value
-    if self.name.eql? 'BTC'
-      price = retrieve_btc_price
-    else
-      price = retrieve_price_by_symbol
-    end
-    price * self.asset_amount
+    price = if name.eql? 'BTC'
+              retrieve_btc_price
+            else
+              retrieve_price_by_symbol
+            end
+    price * asset_amount
   end
 
   def retrieve_btc_price
