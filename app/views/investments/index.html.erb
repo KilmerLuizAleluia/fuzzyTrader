@@ -1,9 +1,13 @@
-<h3 class="ui dividing header" style="margin-top: 5%">How much do you want to invest today?</h3>
+<p id="notice"><%= notice %></p>
 
-  <%= form_with(url: new_investment_path, method: "get", local: true) do %>
-    <%= label_tag(:asset_amount, "Asset amount:") %>
-    <%= text_field_tag(:asset_amount) %>
-    <%= submit_tag("Show me assets") %>
+<h1 class="ui dividing header" style="margin-top: 5%">Let's invest!</h1>
+
+  <%= form_with(url: new_investment_path, method: "get", local: true, class: 'ui form') do %>
+    <div class="inline field">
+      <%= label_tag(:asset_amount, "How much do you want to invest (in USD)?", class: 'header') %>
+      <%= number_field_tag :asset_amount, nil, min: 0.1, max: :any, :step => 'any', class: "number" %>
+      <%= submit_tag("Show assets", class: 'ui button')%>
+    </div>
   <% end %>
 
 </div>

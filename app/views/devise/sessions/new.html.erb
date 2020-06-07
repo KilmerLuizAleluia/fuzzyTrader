@@ -1,26 +1,35 @@
-<h2>Log in</h2>
+<div class="ui middle aligned center aligned grid">
+  <div class="ui stacked segment" style="margin-top: 5%">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f| %>
+      <div class="ui error">
+        <%= devise_error_messages! %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="envelope icon"></i>
+          <%= f.email_field :email, placeholder: 'E-mail address', autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, placeholder: 'Password', autocomplete: "current-password" %>
+        </div>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="actions">
+        <%= f.submit 'Log in', class: 'ui fluid large blue submit button' %>
+      </div>
+      <div style='text-align: center'>
+        <br/>
+        <span>Don't have an account?</span>
+        <br/>
+        <br/>
+        <%= link_to 'Sign up!', new_registration_path(resource_name), class: 'ui button' %><br/>
+      </div>
+      </div>
+    <% end %>
+
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

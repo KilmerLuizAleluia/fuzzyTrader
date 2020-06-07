@@ -1,28 +1,28 @@
-<div class="ui card align center" style="margin-top: 10%">
 
-  <div class="content">
-    <div class="header">Portfolio</div>
+<h1 class="ui dividing header" style="margin-top: 5%">Portfolio</h1>
 
-    <table class="ui celled table">
-      <thead>
-      <tr>
-        <th>Asset</th>
-        <th>Amount</th>
-        <th>Value in Dollar</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @investments.each do |inv| %>
-        <tr>
-          <td data-label="Asset"><%= inv.name %></td>
-          <td data-label="Amount"><%= inv.asset_amount&.round(3) %></td>
-          <td data-label="Value in Dollar">TODO</td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+<p id="notice"><%= notice %></p>
 
-    <div>Total: TODO</div>
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Asset</th>
+    <th>Amount</th>
+    <th>Value (USD)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @portfolio.investments.each do |inv| %>
+    <tr>
+      <td data-label="Asset"><%= inv.name %></td>
+      <td data-label="Amount"><%= inv.asset_amount&.round(3) %></td>
+      <td data-label="Value in Dollar"><%= number_to_currency inv.dollar_value.round(3) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-  </div>
+<div class="ui teal message">
+  Total:  <%= number_to_currency(@portfolio.dollar_value.round(3)) %>
 </div>
+

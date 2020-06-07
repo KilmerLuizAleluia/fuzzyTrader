@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
   def index
-    @investments = current_user.portfolio.investments
+    @portfolio = current_user.portfolio
   end
 end

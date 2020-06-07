@@ -9,17 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="ui container">
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+  <body class="ui container right">
     <% if user_signed_in? %>
-      <div class="ui fixed inverted menu" style="margin-top: 0;" >
+      <div class="ui fixed right menu" style="margin-top: 0;" >
         <div class="ui container" >
           <%= link_to "Hello, #{current_user.full_name}!", investments_path,
+                      :class => 'header item' %>
+          <%= link_to 'Portfolio', portfolios_path,
                       :class => 'header item' %>
           <%= link_to 'Edit profile', edit_user_registration_path,
                       :class => 'header item' %>
@@ -28,13 +24,14 @@
         </div>
       </div>
     <% else %>
-      <div class="ui fixed inverted menu" style="margin-top: 0;">
+      <div class="ui two item menu" style="margin-top: 0;">
         <div class="ui container">
-          <%= link_to "Sign up", new_user_registration_path, :class => 'header item'  %>
-          <%= link_to "Login", new_user_session_path, :class => 'header item'  %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'item'  %>
+          <%= link_to "Login", new_user_session_path, :class => 'item'  %>
         </div>
       </div>
     <% end %>
-    <%= yield %>
+
+  <%= yield %>
   </body>
 </html>
