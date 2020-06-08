@@ -3,15 +3,21 @@
 class InvestmentsController < ApplicationController
   def index; end
 
+  # POST /investments/new
   def new
     @investment = Investment.new(asset_amount: params['asset_amount'])
     bitcoin = [{ symbol: 'BTC', price: @investment.retrieve_btc_price, fifty_two_week_high: 'NA',
                  fifty_two_week_low: 'NA' }]
     @assets_list = retrieve_world_trade_data + bitcoin
+    # sorting from assets that are closer to their high value in last year to help Fuzzy Trader user
+    @assets_list.sort! do |a, b|
+      (b[:price] / b[:fifty_two_week_high].to_f) <=> (a[:price] / a[:fifty_two_week_high].to_f)
+    end
   end
 
+  # POST /investments/buy
   def buy
-    amount = params[:money].to_f/params[:price].to_f
+    amount = params[:money].to_f / params[:price].to_f
     @investment = helpers.define_investment(amount)
     save_and_redirect
   end

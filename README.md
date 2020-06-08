@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This system help user selecting assets to invest. To do this, shows high value assets based on self historic in last 52 weeks.
+Also shows inverse value - low value assets based on same criteria. 
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.7.1;
 
-* System dependencies
+* Rails version: 6.0.3;
 
-* Configuration
+* How to run the test suite: `$ bundle exec rspec`;
 
-* Database creation
+* How to run rubocop: `$ bundle exec rubocop --require rubocop-rails`;
 
-* Database initialization
+* Heroku address: https://fuzzy-trader.herokuapp.com.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### TODO
 
-* Deployment instructions
+* create `BitcoinQuotationService` and `StockQuotationService` to remove requests references from models;
 
-* ...
+* change `models/portfolio#dollar_value` to make one API call;
+
+* change API - World Trading Data was returning `null` for any symbol;
+
+* allow user to sell assets;
+
+* add confirmation modal on buying asset. 

@@ -2,6 +2,7 @@
 
 class Investment < ApplicationRecord
   belongs_to :portfolio
+  validates :name, :asset_amount, presence: true
 
   def dollar_value
     price = if name.eql? 'BTC'

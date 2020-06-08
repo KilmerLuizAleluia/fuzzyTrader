@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -39,7 +41,7 @@ RSpec.describe User, type: :model do
     it 'should create portolio after creating user' do
       portfolio_count = Portfolio.count
       user = User.create(first_name: 'Kilmer', last_name: 'Luiz', email: 'kilmer@ale.com', password: 'passwrd')
-      expect(Portfolio.count).to eq (portfolio_count   + 1)
+      expect(Portfolio.count).to eq(portfolio_count + 1)
     end
   end
 

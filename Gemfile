@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'rails-controller-testing'
 gem 'rest-client'
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
